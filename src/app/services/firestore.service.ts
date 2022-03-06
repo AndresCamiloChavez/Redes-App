@@ -11,6 +11,9 @@ export class FirestoreService {
 
   getArticles() {
     console.log('valor de la entidad',Entities.articles);
-    return this.firestore.collection<Article>(Entities.articles).valueChanges();
+    return this.firestore.collection<Article>(Entities.articles).valueChanges()  ;
+  }
+  createDoc<T>(data: any, path: string){
+    return this.firestore.collection<T>(path).doc().set(data);
   }
 }
