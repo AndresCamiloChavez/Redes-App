@@ -36,6 +36,7 @@ export class RegisterPage implements OnInit {
     this.auth.createUserWithEmailAndPassword(this.form.get('email').value, this.form.get('password').value).then(data =>{
       this.authService.createUser(this.form.value).then( dataUser =>{
         this.presentToast();
+        this.router.navigate(['login']);
       });
     });
   }
